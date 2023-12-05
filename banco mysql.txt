@@ -1,0 +1,27 @@
+create schema escola;
+use  escola;
+
+create table alunos(
+ cpf VARCHAR(11) unique not null,
+ matricula int(5) auto_increment primary key,
+ nome varchar(50)
+);
+ insert into alunos(cpf, nome) values ('03345678915' , 'joaozinho barnabé');
+
+create table disciplina(
+codigo int(5) auto_increment primary key,
+nome varchar(50),
+cargaHoraria int(4) 
+);
+
+create table matricula(
+id int(20) auto_increment primary key,
+aluno int(5) ,
+disciplina int(5),
+nota double, 
+constraint fkaluno foreign key(aluno) references alunos(matricula),
+constraint fkdisciplina foreign key(disciplina) references disciplina(codigo)
+);
+
+select * from alunos;
+
